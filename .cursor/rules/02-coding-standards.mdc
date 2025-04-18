@@ -1,0 +1,38 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Coding Standards
+
+## TypeScript
+- Use TypeScript for all new code
+- Enable strict mode in TypeScript configurations
+- Define explicit types for function parameters and return values
+- Use interfaces for object shapes
+
+## Component Structure
+- One component per file
+- Use functional components with hooks
+- Follow Qwik component lifecycle best practices
+- Keep components focused and single-responsibility
+- Prefer @qwik-ui/headless components for interactive UI elements
+- Maintain ARIA attributes and accessibility features
+
+## Naming Conventions
+- PascalCase for component files and component names
+- camelCase for variables, functions, and instances
+- Use descriptive, meaningful names
+- Prefix boolean variables with is/has/should
+
+## Code Style
+- Follow Prettier configuration in [.prettierrc.js](mdc:.prettierrc.js)
+- Follow ESLint rules in [.eslintrc.cjs](mdc:.eslintrc.cjs)
+- Use meaningful comments for complex logic
+- Keep functions small and focused
+
+## Accessibility
+- Use @qwik-ui/headless components for consistent accessibility
+- Ensure proper keyboard navigation
+- Maintain ARIA labels and roles
+- Test with screen readers

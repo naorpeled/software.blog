@@ -1,0 +1,29 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Routing Guidelines
+
+## Blog Route Structure
+- `/`: Home page with featured/recent posts
+- `/posts`: Blog post listing page
+- `/posts/[slug]`: Individual blog post pages
+- `/categories/[category]`: Category-specific post listings
+- `/tags/[tag]`: Tag-specific post listings
+- `/about`: About page
+- `/search`: Search functionality
+
+## Route Implementation
+- Use dynamic routes for blog posts
+- Implement pagination for post listings
+- Create reusable layouts for consistent blog structure
+- Handle metadata for SEO optimization
+- Implement proper loading states for content
+
+## Navigation
+- Use Qwik's Link component for internal navigation
+- Implement breadcrumb navigation for better UX
+- Add category and tag navigation
+- Include search functionality
+- Ensure proper meta tags for blog SEO

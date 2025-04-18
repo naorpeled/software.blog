@@ -1,0 +1,30 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Project Overview
+
+This is a Qwik-based software blog web application. Here are the key files and directories:
+
+## Entry Points
+- [src/entry.cloudflare-pages.tsx](mdc:src/entry.cloudflare-pages.tsx): Main entry point for Cloudflare Pages deployment
+- [src/root.tsx](mdc:src/root.tsx): Root component that sets up the blog layout and routing
+
+## Core Configuration
+- [vite.config.ts](mdc:vite.config.ts): Vite and Qwik build configuration
+- [tsconfig.json](mdc:tsconfig.json): TypeScript configuration
+
+## Main Directories
+- `src/routes`: Contains blog pages, post routes, and layouts
+- `src/components`: Reusable blog components (posts, navigation)
+- `src/content`: Blog posts and content management
+- `public`: Static assets (images, fonts, etc.)
+
+## Development
+The project uses:
+- TypeScript for type safety
+- ESLint for code linting ([.eslintrc.cjs](mdc:.eslintrc.cjs))
+- Prettier for code formatting ([.prettierrc.js](mdc:.prettierrc.js))
+- Markdown for blog content
+- @qwik-ui/headless for accessible UI components
