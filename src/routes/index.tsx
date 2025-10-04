@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Link } from "@builder.io/qwik-city";
 import { BlogCard } from "~/components/blog-card/BlogCard";
+import { Typewriter } from "~/components/typewriter/Typewriter";
 import { getFeaturedPosts, getAllPosts } from "~/content/posts";
 
 export default component$(() => {
@@ -11,29 +12,91 @@ export default component$(() => {
   return (
     <>
       {/* Hero Section */}
-      <section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section class="relative overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 sm:py-32">
+        {/* Animated background elements */}
+        <div class="absolute inset-0 overflow-hidden">
+          <div class="absolute top-0 -left-4 h-72 w-72 animate-pulse rounded-full bg-blue-200 opacity-20 blur-3xl"></div>
+          <div
+            class="absolute top-1/3 -right-4 h-72 w-72 animate-pulse rounded-full bg-purple-200 opacity-20 blur-3xl"
+            style="animation-delay: 1s;"
+          ></div>
+          <div
+            class="absolute bottom-0 left-1/3 h-72 w-72 animate-pulse rounded-full bg-indigo-200 opacity-20 blur-3xl"
+            style="animation-delay: 2s;"
+          ></div>
+        </div>
+
+        <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="text-center">
-            <h1 class="mb-6 text-5xl font-bold text-gray-900 sm:text-6xl">
-              Welcome to <span class="text-blue-600">software.blog</span>
+            {/* Main heading with typewriter */}
+            <h1 class="mb-6 text-center text-5xl font-bold text-gray-900 sm:text-6xl lg:text-7xl">
+              <span class="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                Learn about{" "}
+              </span>
+              <span class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <Typewriter
+                  words={[
+                    "Architecture",
+                    "Infrastructure",
+                    "System Design",
+                    "Modern Web Dev",
+                    "Cloud Computing",
+                    "DevOps",
+                    "Microservices",
+                    "API Design",
+                    "Performance",
+                    "Scalability",
+                    "Security",
+                    "Testing",
+                    "CI/CD",
+                    "Containers",
+                    "Kubernetes",
+                    "Databases",
+                    "Best Practices",
+                    "Code Quality",
+                  ]}
+                  typingSpeed={70}
+                  deletingSpeed={35}
+                  delayBetweenWords={2000}
+                />
+              </span>
             </h1>
-            <p class="mx-auto mb-8 max-w-2xl text-xl text-gray-700">
-              Insights, tutorials, and best practices for modern software
-              engineering. Learn from real-world experiences and stay ahead in
-              the ever-evolving tech landscape.
+
+            {/* Subtitle */}
+            <p class="mx-auto mb-10 max-w-2xl text-xl text-gray-600 sm:text-2xl">
+              Insights, tutorials, and best practices for{" "}
+              <span class="font-semibold text-gray-900">
+                modern software engineering
+              </span>
+              . Learn from real-world experiences.
             </p>
-            <div class="flex justify-center gap-4">
+
+            {/* CTA Buttons */}
+            <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/posts"
-                class="rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
+                class="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
               >
-                Explore Posts
+                <span>Explore Posts</span>
+                <svg
+                  class="h-5 w-5 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
               </Link>
               <Link
                 href="/about"
-                class="rounded-lg border border-gray-300 bg-white px-8 py-3 font-semibold text-gray-700 transition-colors hover:bg-gray-50"
+                class="inline-flex items-center gap-2 rounded-lg border-2 border-gray-300 bg-white/80 px-8 py-4 font-semibold text-gray-700 backdrop-blur-sm transition-all hover:border-gray-400 hover:bg-white"
               >
-                About Us
+                <span>About Us</span>
               </Link>
             </div>
           </div>
@@ -80,19 +143,40 @@ export default component$(() => {
       </section>
 
       {/* Call to Action */}
-      <section class="bg-blue-600 py-16">
-        <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 class="mb-4 text-3xl font-bold text-white">
+      <section class="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 py-20">
+        <div class="bg-grid-white/[0.05] absolute inset-0 bg-[size:20px_20px]"></div>
+        <div class="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+          <div class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
+            <span class="text-sm font-medium text-white">
+              🚀 Start your journey today
+            </span>
+          </div>
+          <h2 class="mt-6 mb-4 text-4xl font-bold text-white sm:text-5xl">
             Ready to level up your skills?
           </h2>
-          <p class="mb-8 text-xl text-blue-100">
-            Join thousands of developers learning and growing together.
+          <p class="mx-auto mb-8 max-w-2xl text-xl text-blue-100">
+            Join thousands of developers learning and growing together. Get
+            access to in-depth tutorials, best practices, and real-world
+            insights.
           </p>
           <Link
             href="/posts"
-            class="inline-block rounded-lg bg-white px-8 py-3 font-semibold text-blue-600 transition-colors hover:bg-gray-100"
+            class="group inline-flex items-center gap-2 rounded-lg bg-white px-8 py-4 font-semibold text-blue-600 shadow-xl transition-all hover:scale-105 hover:shadow-2xl"
           >
-            Start Reading
+            <span>Start Reading</span>
+            <svg
+              class="h-5 w-5 transition-transform group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
+            </svg>
           </Link>
         </div>
       </section>
