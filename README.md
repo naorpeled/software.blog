@@ -88,6 +88,7 @@ Visit [http://localhost:8787/](http://localhost:8787/)
 ## Content Management
 
 Blog posts are managed through:
+
 - Markdown files for content
 - File-based routing for automatic URL generation
 - Type-safe front matter for metadata
