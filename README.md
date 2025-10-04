@@ -1,112 +1,110 @@
-# Qwik City App ⚡️
+# software.blog ⚡️
 
-- [Qwik Docs](https://qwik.dev/)
-- [Discord](https://qwik.dev/chat)
-- [Qwik GitHub](https://github.com/QwikDev/qwik)
-- [@QwikDev](https://twitter.com/QwikDev)
-- [Vite](https://vitejs.dev/)
+A modern software engineering blog built with Qwik, deployed on Cloudflare Pages.
 
----
+## Tech Stack
+
+- **Framework**: [Qwik](https://qwik.dev/) - Resumable, instant-loading web framework
+- **Routing**: [Qwik City](https://qwik.dev/qwikcity/overview/) - File-based routing and layouts
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) - Modern utility-first CSS
+- **UI Components**: [@qwik-ui/headless](https://qwikui.com/) - Accessible, unstyled components
+- **Deployment**: [Cloudflare Pages](https://pages.cloudflare.com/) - Edge deployment
+- **Language**: TypeScript - Type-safe development
 
 ## Project Structure
 
-This project is using Qwik with [QwikCity](https://qwik.dev/qwikcity/overview/). QwikCity is just an extra set of tools on top of Qwik to make it easier to build a full site, including directory-based routing, layouts, and more.
-
-Inside your project, you'll see the following directory structure:
-
 ```
-├── public/
-│   └── ...
-└── src/
-    ├── components/
-    │   └── ...
-    └── routes/
-        └── ...
-```
-
-- `src/routes`: Provides the directory-based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.dev/qwikcity/routing/overview/) for more info.
-
-- `src/components`: Recommended directory for components.
-
-- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
-
-## Add Integrations and deployment
-
-Use the `pnpm qwik add` command to add additional integrations. Some examples of integrations includes: Cloudflare, Netlify or Express Server, and the [Static Site Generator (SSG)](https://qwik.dev/qwikcity/guides/static-site-generation/).
-
-```shell
-pnpm qwik add # or `pnpm qwik add`
+├── public/               # Static assets (images, fonts, etc.)
+├── src/
+│   ├── components/      # Reusable UI components
+│   ├── routes/          # File-based routing
+│   │   ├── index.tsx    # Home page
+│   │   └── layout.tsx   # Root layout
+│   ├── global.css       # Global styles
+│   └── root.tsx         # Application root
+└── adapters/            # Platform-specific adapters
 ```
 
 ## Development
 
-Development mode uses [Vite's development server](https://vitejs.dev/). The `dev` command will server-side render (SSR) the output during development.
+### Prerequisites
 
-```shell
-npm start # or `pnpm start`
+- Node.js 18.17.0+ or 20.3.0+ or 21.0.0+
+- pnpm (recommended package manager)
+
+### Getting Started
+
+1. Install dependencies:
+
+```bash
+pnpm install
 ```
 
-> Note: during dev mode, Vite may request a significant number of `.js` files. This does not represent a Qwik production build.
+2. Start the development server:
 
-## Preview
-
-The preview command will create a production build of the client modules, a production build of `src/entry.preview.tsx`, and run a local server. The preview server is only for convenience to preview a production build locally and should not be used as a production server.
-
-```shell
-pnpm preview # or `pnpm preview`
+```bash
+pnpm dev
 ```
 
-## Production
+Visit [http://localhost:5173/](http://localhost:5173/)
 
-The production build will generate client and server modules by running both client and server build commands. The build command will use Typescript to run a type check on the source code.
+### Available Scripts
 
-```shell
-pnpm build # or `pnpm build`
+- `pnpm dev` - Start development server with SSR
+- `pnpm build` - Build for production
+- `pnpm preview` - Preview production build locally
+- `pnpm lint` - Run ESLint
+- `pnpm fmt` - Format code with Prettier
+- `pnpm serve` - Test Cloudflare Pages build locally
+
+## Building for Production
+
+```bash
+pnpm build
 ```
 
-## Cloudflare Pages
+This creates optimized client and server bundles in the `dist/` directory.
 
-Cloudflare's [wrangler](https://github.com/cloudflare/wrangler) CLI can be used to preview a production build locally. To start a local server, run:
+## Deployment
 
-```
+The blog is deployed on Cloudflare Pages with automatic deployments on git push.
+
+### Cloudflare Pages Configuration
+
+- **Build command**: `pnpm build`
+- **Build output directory**: `dist`
+- **Node version**: 20.x
+
+### Local Preview
+
+Test the Cloudflare Pages build locally:
+
+```bash
 pnpm serve
 ```
 
-Then visit [http://localhost:8787/](http://localhost:8787/)
+Visit [http://localhost:8787/](http://localhost:8787/)
 
-### Deployments
+## Content Management
 
-[Cloudflare Pages](https://pages.cloudflare.com/) are deployable through their [Git provider integrations](https://developers.cloudflare.com/pages/platform/git-integration/).
+Blog posts are managed through:
+- Markdown files for content
+- File-based routing for automatic URL generation
+- Type-safe front matter for metadata
 
-If you don't already have an account, then [create a Cloudflare account here](https://dash.cloudflare.com/sign-up/pages). Next go to your dashboard and follow the [Cloudflare Pages deployment guide](https://developers.cloudflare.com/pages/framework-guides/deploy-anything/).
+## Code Quality
 
-Within the projects "Settings" for "Build and deployments", the "Build command" should be `pnpm build`, and the "Build output directory" should be set to `dist`.
+- **Linting**: ESLint with TypeScript and Qwik rules
+- **Formatting**: Prettier with Tailwind CSS plugin
+- **Type Checking**: TypeScript strict mode
 
-### Function Invocation Routes
+## Learn More
 
-Cloudflare Page's [function-invocation-routes config](https://developers.cloudflare.com/pages/platform/functions/routing/#functions-invocation-routes) can be used to include, or exclude, certain paths to be used by the worker functions. Having a `_routes.json` file gives developers more granular control over when your Function is invoked.
-This is useful to determine if a page response should be Server-Side Rendered (SSR) or if the response should use a static-site generated (SSG) `index.html` file.
+- [Qwik Documentation](https://qwik.dev/)
+- [Qwik City Guide](https://qwik.dev/qwikcity/overview/)
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [Cloudflare Pages](https://developers.cloudflare.com/pages/)
 
-By default, the Cloudflare pages adaptor _does not_ include a `public/_routes.json` config, but rather it is auto-generated from the build by the Cloudflare adaptor. An example of an auto-generate `dist/_routes.json` would be:
+## License
 
-```
-{
-  "include": [
-    "/*"
-  ],
-  "exclude": [
-    "/_headers",
-    "/_redirects",
-    "/build/*",
-    "/favicon.ico",
-    "/manifest.json",
-    "/service-worker.js",
-    "/about"
-  ],
-  "version": 1
-}
-```
-
-In the above example, it's saying _all_ pages should be SSR'd. However, the root static files such as `/favicon.ico` and any static assets in `/build/*` should be excluded from the Functions, and instead treated as a static file.
-
-In most cases the generated `dist/_routes.json` file is ideal. However, if you need more granular control over each path, you can instead provide you're own `public/_routes.json` file. When the project provides its own `public/_routes.json` file, then the Cloudflare adaptor will not auto-generate the routes config and instead use the committed one within the `public` directory.
+Private project
